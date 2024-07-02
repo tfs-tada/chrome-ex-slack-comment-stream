@@ -1,0 +1,23 @@
+{
+  "name": "chrome-ex-slack-comment-stream",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "chrome-ex-slack-comment-stream",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "tabs",
+    "storage",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://app.slack.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
