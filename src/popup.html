@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>設定</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        width: 400px;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .setting {
+        margin-bottom: 20px;
+      }
+      .setting label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .setting input[type="text"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .setting input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .button-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .button-container button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+      .button-container button:hover {
+        background-color: #45a049;
+      }
+      .notification {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+        color: white;
+        text-align: center;
+      }
+      .notification.success {
+        background-color: #4caf50;
+      }
+      .notification.error {
+        background-color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>slack comment stream</h1>
+
+      <div class="setting">
+        <label>
+          <input
+            type="checkbox"
+            id="enableAllChannels"
+            data-textbox-id="channelIds"
+          />
+          全てのチャンネルを有効化する
+        </label>
+        <label for="channelIds"
+          >有効化するチャンネルID（コンマ区切りで入力）:</label
+        >
+        <input
+          type="text"
+          id="channelIds"
+          placeholder="チャンネルidは C0 から始まります"
+        />
+      </div>
+
+      <div class="setting">
+        <label>
+          <input
+            type="checkbox"
+            id="enableAllMentions"
+            data-textbox-id="mentionIds"
+          />
+          全てのメンションを有効化する
+        </label>
+        <label for="mentionIds"
+          >有効化するメンションID（コンマ区切りで入力）:</label
+        >
+        <input
+          type="text"
+          id="mentionIds"
+          placeholder="メンションidは S0 または U0 から始まります"
+        />
+      </div>
+
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="enableAllDMs" data-textbox-id="dmIds" />
+          全てのDMを有効化する
+        </label>
+        <label for="dmIds">有効化するDM ID（コンマ区切りで入力）:</label>
+        <input type="text" id="dmIds" placeholder="DM idは D0 から始まります" />
+      </div>
+
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="enableAutoMessage" />
+          自動メッセージを有効化する
+        </label>
+      </div>
+
+      <div class="button-container">
+        <button id="sendButton">保存</button>
+      </div>
+      <div class="notification" id="notification"></div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

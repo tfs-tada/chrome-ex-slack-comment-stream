@@ -4,7 +4,10 @@
   "manifest_version": 3,
   "description": "chrome-ex-slack-comment-stream",
   "permissions": ["webRequest", "declarativeNetRequest"],
-  "host_permissions": ["https://app.slack.com/*", "wss://wss-primary.slack.com/*"],
+  "host_permissions": [
+    "https://app.slack.com/*",
+    "wss://wss-primary.slack.com/*"
+  ],
   "content_scripts": [
     {
       "matches": ["https://app.slack.com/*"],
@@ -14,5 +17,8 @@
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
   }
 }
